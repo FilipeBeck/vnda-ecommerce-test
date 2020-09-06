@@ -1,0 +1,42 @@
+[
+	[
+		{
+			"href": "/orders",
+			"label": "Pedidos"
+		},
+		{
+			"href": "/carts",
+			"label": "Carrinhos"
+		},
+		{
+			"href": "/products",
+			"label": "Produtos"
+		},
+		{
+			"href": "/tags",
+			"label": "Tags"
+		},
+		{
+			"href": "/users",
+			"label": "Clientes"
+		},
+		{
+			"href": "/promotions",
+			"label": "Promoções"
+		}
+	],
+	[
+		{
+			"href": "/menu",
+			"label": "Menu"
+		},
+		{
+			"href": "/pages",
+			"label": "Páginas"
+		},
+		{
+			"href": "/banners",
+			"label": "Banners"
+		}
+	]
+]

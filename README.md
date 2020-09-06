@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# VNDA Test
+
+## Env
+
+Deve ser criado um arquivo `.env.local` com as variáveis de ambiente. Há um arquivo `.env.sample` de exemplo.
+
+## CORS
+
+As atualizações, edições e exclusões do usuário são feitas no lado cliente. O jeito mais fácil de contornar o problema de CORS é rodar o Chrome via terminal com `google-chrome --disable-web-security --user-data-dir="/tmp"` no Linux.
 
 ## Getting Started
 
