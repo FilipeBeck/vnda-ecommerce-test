@@ -1,44 +1,7 @@
 import { TextField, Button, MenuItem } from '@material-ui/core'
 import { useCallback } from 'react'
 import { User } from '../fetcher'
-import { makeStyles } from '@material-ui/core/styles'
-
-const useStyles = makeStyles({
-	root: {
-		display: 'grid',
-		gridTemplateRows: 'repeat(6, 1fr)',
-		gridGap: '20px',
-		'& > label': {
-			display: 'flex',
-			flexDirection: 'column',
-			'& > span': {
-				fontWeight: 'bold',
-				marginBottom: '10px',
-			},
-			'& > div': {
-				'& input': {
-					height: '1em',
-				}
-			},
-		},
-	},
-	save: {
-		width: 'max-content',
-		height: 'max-content',
-		padding: '10px 20px',
-		backgroundColor: '#4B4D5B',
-		border: 'solid 1px #363842',
-		borderRadius: '2px',
-		textTransform: 'none',
-		color: 'white',
-		'&:hover': {
-			color: '#363842',
-		},
-		'&:disabled': {
-			backgroundColor: 'white'
-		},
-	},
-})
+import styles from './UserForm.module.scss'
 
 const fields = [
 	{ id: 'email', label: 'E-mail' },
@@ -49,8 +12,6 @@ const fields = [
 ]
 
 const UserForm: React.FC<UserForm.Props> = props => {
-	const styles = useStyles()
-
 	const handleChange = useCallback((event: React.ChangeEvent<{ id: string, value: string}>) => {
 		props.onChange({
 			...props.fields,

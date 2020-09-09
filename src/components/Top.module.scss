@@ -1,0 +1,34 @@
+.root {
+	.menuButton {
+		font-size: '1cm';
+	}
+	.search {
+		position: relative;
+		margin-left: 20px;
+		height: 40px;
+		background-color: #404C56;
+		border-radius: 20px;
+		.icon {
+			position: absolute;
+			width: 30px;
+			height: 100%;
+			margin-left: 10px;
+		}
+		.input {
+			height: 100%;
+			padding-left: 40px;
+			color: #ddd;
+		}
+	}
+	.title {
+		flex-grow: 1;
+		text-align: center;
+	}
+	.user {
+		display: flex;
+		align-items: center;
+		.menu {
+			text-transform: none;
+		}
+	}
+}

@@ -1,34 +1,17 @@
 import { GetStaticProps } from 'next'
 import ErrorPage from 'next/error'
-import { makeStyles } from '@material-ui/core/styles'
 import Head from 'next/head'
 import Top from '../components/Top'
 import SideMenu from '../components/SideMenu'
 import sideMenuItems from '../side-menu-items.json'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
-/**
- * Estilos.
- */
-const useStyles = makeStyles({
-	root: {
-		position: 'absolute',
-		top: 0,
-		right: 0,
-		bottom: 0,
-		left: 0,
-	},
-	body: {
-		display: 'flex',
-		height: '-webkit-fill-available',
-	}
-})
+import styles from './wrapper.module.scss'
 /**
  * Componente empacotador das páginas contendo a estrutura comum a todas elas. Implementado seguindo o comentário em https://github.com/vercel/next.js/issues/2332#issuecomment-310153749. Poderia deixar fora de "pages", mas me pareceu mais semântico dentro.
  * @param props Atributos.
  */
 const Wrapper: React.FC<Wrapper.Props> = props => {
-	const styles = useStyles()
 	const { isNavigated, top } = props
 	const router = useRouter()
 	const isSideMenuVisible = router.query.menu !== 'false'

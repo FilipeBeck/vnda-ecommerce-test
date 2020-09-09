@@ -1,0 +1,63 @@
+.dialog {
+	padding: 30px 50px;
+	& > .dialogTitle {
+		text-align: center;
+	}
+	& > div:last-child {
+		display: flex;
+		justify-content: space-around;
+		margin-top: 20px;
+		& > button {
+			&:first-child {
+				color: blue;
+			}
+			&:last-child {
+				color: red;
+			}
+		}
+	}
+}
+.topHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.topTitle {
+	color: #4B4D5B;
+}
+.topNewUserButton {
+	padding: 10px;
+	color: black;
+	border: solid 1px #CDD1D7;
+	border-radius: 2px;
+}
+.gridContainer {
+	display: grid;
+	grid-template-columns: 50px auto;
+	align-items: center;
+	padding: 10px;
+	background-color: white;
+}
+.gridContained {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	grid-column-gap: 10px;
+	& > span {
+		color: #4B4D5B,
+	}
+}
+.contentHeader {
+	font-weight: bold;
+	& > span {
+		color: black;
+	}
+}
+.gridLineItem {
+	border-top: solid 1px #E6E7EB;
+}
+.deleteUserButton {
+	margin: 5px;
+	height: 10px;
+}

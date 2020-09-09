@@ -1,0 +1,17 @@
+.title {
+	display: grid;
+	grid-template-columns: repeat(3, max-content);
+	grid-column-gap: 10px;
+	align-items: center;
+	margin-bottom: 30px;
+	& > h6 {
+		font-weight: bold;
+		color: #677181;
+		&:first-child {
+			font-weight: normal;
+		}
+		&:last-child {
+			color: #4B4D5B
+		}
+	}
+}

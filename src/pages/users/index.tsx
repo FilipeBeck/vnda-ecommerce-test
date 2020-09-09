@@ -4,67 +4,7 @@ import { User, getUsers, getCurrentUser, deleteUser } from '../../fetcher'
 import { IconButton, Link, Dialog, DialogTitle, Typography, Button } from '@material-ui/core'
 import * as Icon from '@material-ui/icons'
 import { useState, useCallback } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-/**
- * Estilos.
- */
-const useStyles = makeStyles({
-	dialog: {
-		padding: '30px 50px',
-		'& > h2': {
-			textAlign: 'center',
-		},
-		'& > div:last-child': {
-			display: 'flex',
-			justifyContent: 'space-around',
-			marginTop: '20px',
-		},
-	},
-	topHeader: {
-		display: 'flex',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		marginBottom: '10px',
-	},
-	topTitle: {
-		color: '#4B4D5B',
-	},
-	topNewUserButton: {
-		padding: '10px',
-		color: 'black',
-		border: 'solid 1px #CDD1D7',
-		borderRadius: '2px',
-	},
-	gridContainer: {
-		display: 'grid',
-		gridTemplateColumns: '50px auto',
-		alignItems: 'center',
-		padding: '10px',
-		backgroundColor: 'white',
-	},
-	gridContained: {
-		display: 'grid',
-		gridTemplateColumns: 'repeat(3, 1fr)',
-		alignItems: 'center',
-		gridColumnGap: '10px',
-		'& > span': {
-			color: '#4B4D5B',
-		}
-	},
-	contentHeader: {
-		fontWeight: 'bold',
-		'& > span': {
-			color: 'black',
-		}
-	},
-	gridLineItem: {
-		borderTop: 'solid 1px #E6E7EB',
-	},
-	deleteUserButton: {
-		margin: '5px',
-		height: '10px',
-	}
-})
+import styles from './index.module.scss'
 /**
  * Verifica se `term` está contido em algun dos elementos de `texts`.
  * @param term Termo a ser pesquisado.
@@ -79,7 +19,6 @@ function matchSearchTerm(term: string, ...texts: string[]): boolean {
  * @param props Atributos.
  */
 const Users: React.FC<Users.Props> = props => {
-	const styles = useStyles()
 	const { currentUser } = props
 	const [searchTerm, setSearchTerm] = useState('')
 	const [deletingUser, setDeletingUser] = useState<number | null>(null)
@@ -128,11 +67,11 @@ const Users: React.FC<Users.Props> = props => {
 	>
 		<main>
 			<Dialog classes={{ paper: styles.dialog}} open={deletingUser !== null}>
-				<DialogTitle>Confirmar exclusão</DialogTitle>
+				<DialogTitle className={styles.dialogTitle}>Confirmar exclusão</DialogTitle>
 				<Typography variant="subtitle2">Essa operação não pode ser desfeita. Deseja continuar?</Typography>
 				<div>
-					<Button color="primary" startIcon={<Icon.Undo/>} onClick={handleCancelDeleteUser}>Não</Button>
-					<Button color="secondary" startIcon={<Icon.Delete/>} onClick={handleConfirmDeleteUser}>Sim</Button>
+					<Button startIcon={<Icon.Undo/>} onClick={handleCancelDeleteUser}>Não</Button>
+					<Button startIcon={<Icon.Delete/>} onClick={handleConfirmDeleteUser}>Sim</Button>
 				</div>
 			</Dialog>
 			<div className={styles.topHeader}>

@@ -1,0 +1,22 @@
+.root {
+	height: -webkit-fill-available;
+	overflow: hidden;
+	&.open {
+		width: auto;
+	}
+	&.closed {
+		width: 0;
+	}
+	.listItem {
+		display: flex;
+		align-items: center;
+		padding: 10px;
+		padding-right: 75px;
+		.activeRoute {
+			font-weight: bold;
+		}
+		.inactiveRoute {
+			font-weight: normal;
+		}
+	}
+}

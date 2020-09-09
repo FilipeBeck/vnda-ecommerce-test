@@ -2,35 +2,14 @@ import { GetServerSideProps } from 'next'
 import Wrapper from '../wrapper'
 import { User, getCurrentUser, createUser } from '../../fetcher'
 import { useState, useCallback } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import UserForm from '../../components/UserForm'
 import { Typography } from '@material-ui/core'
-
-const useStyles = makeStyles({
-	title: {
-		display: 'grid',
-		gridTemplateColumns: 'repeat(3, max-content)',
-		gridColumnGap: '10px',
-		alignItems: 'center',
-		marginBottom: '30px',
-		'& > h6': {
-			fontWeight: 'bold',
-			color: '#677181',
-			'&:first-child': {
-				fontWeight: 'normal',
-			},
-			'&:last-child': {
-				color: '#4B4D5B',
-			}
-		},
-	},
-})
+import styles from './new.module.scss'
 /**
  * Cadastro de usuário.
  * @param props Atributos.
  */
 const UserCreation: React.FC<Users.Props> = props => {
-	const styles = useStyles()
 	const currentUser = props.currentUser
 
 	const [userFields, setUserFields] = useState<UserForm.Fields>({

@@ -1,39 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles'
-import { Link, List, ListItem, ListItemIcon, ListItemText, Divider } from '@material-ui/core'
+import { Link, List, ListItem, ListItemIcon, ListItemText, Divider, Paper } from '@material-ui/core'
 import * as Icon from '@material-ui/icons'
 import { Fragment } from 'react'
 import { useRouter } from 'next/router'
+import styles from './SideMenu.module.scss'
 /**
- * Estilos.
+ * Ícones dos itens de menu.
  */
-const useStyles = makeStyles({
-	root: {
-		backgroundColor: '#E7E7E7',
-		height: '-webkit-fill-available'
-	},
-	open: {
-		width: 'auto',
-		overflow: 'hidden',
-	},
-	closed: {
-		width: 0,
-		overflow: 'hidden',
-	},
-	boldWeight: {
-		fontWeight: 'bold'
-	},
-	normalWeight: {
-		fontWeight: 'normal'
-	},
-	item: {
-		display: 'flex',
-		alignItems: 'center',
-		padding: '10px',
-		paddingRight: '75px',
-		color: '#676C76',
-	}
-})
-
 const icons: Record<string, any> = {
 	'/orders': <Icon.Inbox/>,
 	'/carts': <Icon.ShoppingCart/>,
@@ -47,21 +19,20 @@ const icons: Record<string, any> = {
 }
 
 const SideMenu: React.FC<SideMenu.Props> = props => {
-	const styles = useStyles()
 	const router = useRouter()
 
-	return <div className={`${styles.root} ${styles[props.isOpen && 'open' || 'closed']}`}>
+	return <Paper className={`${styles.root} ${styles[props.isOpen && 'open' || 'closed']}`}>
 		<List>
 			{props.items.map((section, i) => <Fragment key={i}>
 				{i > 0 && <Divider />}
 				{section.map((item, i) => <ListItem key={i}>
-					<Link className={styles.item} href={item.href + '?menu'}>
+					<Link className={styles.listItem} href={item.href + '?menu'}>
 						<ListItemIcon>
 							{icons[item.href]}
 						</ListItemIcon>
 						<ListItemText
 							classes={{
-								primary: router.pathname.includes(item.href) && styles.boldWeight || styles.normalWeight
+								primary: router.pathname.includes(item.href) && styles.activeRoute || styles.inactiveRoute
 							}}
 						>
 							{item.label}
@@ -70,7 +41,7 @@ const SideMenu: React.FC<SideMenu.Props> = props => {
 				</ListItem>)}
 			</Fragment>)}
 		</List>
-	</div>
+	</Paper>
 }
 namespace SideMenu {
 	export interface Props {
